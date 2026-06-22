@@ -60,7 +60,30 @@
     let test2 = palindromes("qqq");
     // console.log(test2);
 
-    
+    const fibonacci = function(entry) {
+        let count
+        if (typeof entry !== 'number') {
+            count = parseInt(entry)
+        } else {
+            count = entry
+        }
+
+        if (count < 0) return "negative number";
+        if (count == 0) return 0;
+
+        let firstPrev = 1;
+        let secondPrev = 0;
+
+        for (let i = 2; i <= count; i++) {
+            let current = firstPrev + secondPrev;
+            secondPrev = firstPrev;
+            firstPrev = current;
+        }
+
+        return firstPrev;
+
+    };
+    console.log(fibonacci(7));
     </script>
 </body>
 </html>
