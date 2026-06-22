@@ -102,7 +102,7 @@
     const getTheTitles = function (array) {
       return array.map((book) => book.title);
     };
-    console.log(getTheTitles(books));
+    // console.log(getTheTitles(books));
 
     const getAge = function (birth, death) {
     if (!death) {
@@ -110,6 +110,28 @@
     }
     return death - birth;
     };
+    const findTheOldest = function (people) {
+    return people.reduce((oldest, currentPerson) => {
+        const oldestAge = getAge(oldest.yearOfBirth, oldest.yearOfDeath);
+        const currentAge = getAge(
+        currentPerson.yearOfBirth,
+        currentPerson.yearOfDeath
+        );
+        return oldestAge < currentAge ? currentPerson : oldest;
+    });
+    };
+    let people = [
+        {
+            name:"steve", yearOfBirth:"10", yearOfDeath:"3000"
+        },
+        {
+            name:"yaldabaoth", yearOfBirth:"2019", yearOfDeath:"2025"
+        },
+        {
+            name:"jimmy", yearOfBirth:"2013"
+        }
+    ]
+    console.log(findTheOldest(people))
     </script>
 </body>
 </html>
