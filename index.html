@@ -103,6 +103,13 @@
       return array.map((book) => book.title);
     };
     console.log(getTheTitles(books));
+
+    const getAge = function (birth, death) {
+    if (!death) {
+        death = new Date().getFullYear();
+    }
+    return death - birth;
+    };
     </script>
 </body>
 </html>
